@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>传的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href='/images/05.ico'>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/stylesheets/swiper.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  </head>
+  <body>
+<a href="#top" class="xs_none">
+<div class="jump"><span></span></div></a>
+
+
+  <form action="/from/sou" method="get">
+    <div class="sou">
+      <input type="text" placeholder="Search..." name="keyword">
+      <button type="submit" class="search"></button>
+    </div>
+  </form>
+<!--  //导航栏-->
+  <%- include('./nav/nav.html'); %>
+  <div class="container">
+<!--    第一模块-->
+    <div>
+    <div class="row mt-5 d-flex justify-content-between">
+      <div class="col-lg-3  rounded bg_color">
+        <div class="slide">
+          <div class="swiper-container" style="width:100%;" >
+            <div class="swiper-wrapper">
+              <% data.pili.forEach((text)=>{%>
+              <div class="swiper-slide">
+                <img src="<%=text.img%>" style="width:100%;" />
+                <p class="text-center mt-2 font-weight-bold" style="font-size: 24px"><a href="/later/show/<%=text.id%>" class="text-decoration-none text-reset"><%=text.name%></a></p>
+              </div>
+              <%})%>
+
+            </div>
+          </div>
+      </div>
+        <div id="calendar" class="mt-5"></div>
+        <div class="mt-5">
+
+        </div>
+      </div>
+      <div class="col-lg-9 pl-lg-5 mt-4 mt-md-0">
+        <% data.pili.forEach((text)=>{%>
+        <div class="alert alert-primary" role="alert">
+          <a href="/later/show/<%=text.id%>" class="text-decoration-none text-reset">
+          <p class="title font-weight-bold w-50" ><%=text.name%></p>
+          <p class="content"><%=text.jj%></p>
+            <img src="<%=text.img%>" class="pili_img">
+          </a>
+        </div>
+        <%})%>
+
+          <ul class="pagination" style="opacity: 0.5;">
+            <%if(data.page>1){%>
+            <li class="page-item"><a class="page-link" href="/?page=<%=data.page-1%>">上一页</a></li>
+
+            <li class="page-item"><a class="page-link" href="/?page=1">首页</a></li>
+            <li class="page-item"><a class="page-link" href="/?page=<%=data.page-1%>"><%=data.page-1%></a></li>
+            <%}%>
+            <li class="page-item"><a class="page-link" style="color: #0a001f"><%=data.page%></a></li>
+            <%if(data.page < data.max_page){%>
+            <li class="page-item"><a class="page-link" href="/?page=<%=data.page+1%>"><%=data.page+1%></a></li>
+            <%if(data.page < data.max_page-1){%>
+            <li class="page-item page-link">......</li>
+            <%}%>
+            <li class="page-item"><a class="page-link" href="/?page=<%=data.max_page%>">尾页</a></li>
+            <li class="page-item"><a class="page-link" href="/?page=<%=data.page+1%>">下一页</a></li>
+            <%}%>
+          </ul>
+      </div>
+
+    </div>
+    </div>
+<!--    第二模块-->
+    <div class="w-100 mt-5">
+      <p class="mk2_title position-relative">学习笔记
+        <a href="/from/two/0" class="text-decoration-none position-absolute" style="font-size: 1rem;color: #6A6A6A;top: 50%;right: 20px;transform: translateY(-50%);">
+          更多>>>
+        </a>
+      </P>
+      <div class="row">
+      <div class="w-100 mb-5 col-lg-8">
+        <div class="row mk2_bg">
+          <div class="col-lg-2 max_none">类型</div>
+          <div class="col-lg-10">标题</div>
+        </div>
+
+        <%data.study.forEach((study)=>{%>
+        <div class="row mk2_bg">
+          <div class="col-lg-2 max_none border-right border-dark"><a href="/from/two/<%=study.classify_id%>" class="text-decoration-none"><%=study.classify%></a></div>
+          <div class="col-lg-10"><a href="/later/study/<%=study.id%>" class="text-decoration-none"><%=study.title%></a></div>
+        </div>
+        <%})%>
+
+      </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-3">
+          <P>北上太行山，艰哉何巍巍！</P>
+          <P>羊肠坂诘屈，车轮为之摧。</P>
+          <P>树木何萧瑟，北风声正悲。</P>
+          <P>熊罴对我蹲，虎豹夹路啼。</P>
+          <P>溪谷少人民，雪落何霏霏！</P>
+          <P>延颈长叹息，远行多所怀。</P>
+          <P>我心何怫郁，思欲一东归。</P>
+          <P>水深桥梁绝，中路正徘徊。</P>
+          <P>迷惑失故路，薄暮无宿栖。</P>
+          <P>行行日已远，人马同时饥。</P>
+          <P>担囊行取薪，斧冰持作糜。</P>
+          <P>悲彼《东山》诗，悠悠使我哀。</P>
+        </div>
+      </div>
+    </div>
+
+
+    <%data.music.forEach((music)=>{%>
+    <audio src="<%=music.path%>"></audio>
+    <div class="card mb-3 float-left" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="/uploads/a1.jpg" class="card-img mt-4" alt="...">
+        </div>
+        <div class="col-md-8 ">
+          <div class="card-body mt-2">
+            <h5 class="card-title"><%=music.music_name%></h5>
+            <p class="card-text">歌手：<%=music.author%></p>
+            <p class="card-text"><small class="dian1 cuser"> &lt;&lt;&lt;点击试听&gt;&gt;&gt; </small></p>
+            <p class="card-text"><small class="dian2 cuser"> &lt;&lt;&lt;暂停播放&gt;&gt;&gt; </small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%})%>
+  </div>
+
+  </body>
+  <script src="/javascripts/jquery-2.0.2.min.js"></script>
+  <script src="/javascripts/calendar.js"></script>
+  <script src="/javascripts/bootstrap.bundle.min.js"></script>
+  <script src="/javascripts/swiper.min.js"></script>
+  <script src="/javascripts/index.js"></script>
+<script>
+  var mySwiper = new Swiper('.swiper-container', {
+    autoplay: 5000,//可选选项，自动滑动
+    loop : true,
+    speed:1000,
+    autoplayDisableOnInteraction : false,
+    paginationClickable :true,
+    effect : 'fade',
+    fade: {
+      crossFade: true,
+    }
+  })
+  var data = []
+
+  $("#calendar").calendar({
+    data: data,
+    mode: "month",
+    //  maxEvent: 3,
+    //showModeBtn: false
+    //  newDate: "2018-04-1",
+    cellClick: function (events) {
+      //viewCell的事件列表
+    },
+  });
+  var dian=document.querySelectorAll(".dian1");
+  var stop=document.querySelectorAll(".dian2");
+  var audio=document.querySelectorAll("audio");
+  for(let i=0;i<dian.length;i++){
+
+    dian[i].onclick=function () {
+      for (let a=0;a<audio.length;a++){
+        audio[a].pause();
+        audio[a].currentTime=0;
+        dian[a].style.color="#00B7FF";
+        stop[a].style.color="#d9d9d9";
+      }
+      audio[i].play();
+      dian[i].style.color="#d9d9d9";
+      stop[i].style.color="#00B7FF";
+    }
+  }
+  for(let i=0;i<stop.length;i++){
+    stop[i].onclick=function () {
+      audio[i].pause();
+      dian[i].style.color="#00B7FF";
+      stop[i].style.color="#d9d9d9";
+    }
+  }
+</script>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>头像更换</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href='/images/05.ico'>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <style>
+        .all{
+        }
+        .span{
+            font-size: 2rem;
+            color:#6610f2;
+            text-shadow:10px 10px 40px #e6db74;
+            font-family: "华文新魏";
+        }
+        .yuan_img{
+            width: 30%;
+            padding: 20px;
+            border: 4px dotted rgba(62,109,125,0.6);
+            border-radius: 10px;
+            box-shadow:10px 10px 40px ;
+        }
+        .tui{
+            color: #0a001f;
+            font-family: "华文新魏";
+            font-size: 2rem;
+
+        }
+        .tui:hover{
+            color: #e6db74;
+            text-shadow: 2px 2px 3px #e6db74;
+        }
+        .submit{
+            width: 200px;
+            height: 40px;
+            font-size: 2rem;
+            color:#000066;
+            text-shadow:2px 2px 2px #ffffff;
+            font-family: "华文新魏";
+            border-radius: 20px;
+            background:linear-gradient(45deg,#00d95a,#00a8c6);
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+
+</head>
+<body>
+<img src="/images/dlbg.png" class="position-fixed w-100 h-100" style="z-index: -1;top: 0;">
+<div class="container">
+<p class="text-right mr-5"><a href="/" class="text-decoration-none tui">退出</a></p>
+</div>
+<div class="text-center all mt-5">
+    <span class="span">原头像：</span>
+    <img src="/uploads/<%=data.user.head_img%>" class="yuan_img">
+</div>
+<div class="text-center all mt-5 ">
+    <form action="/later/headpicture" method="post" enctype="multipart/form-data">
+    <label for="article_pic" class="span"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更换头像：</font></font></label>
+    <input name="pic" type="file" id="article_pic">
+        <input type="submit" class="submit">
+    </form>
+</div>
+
+</body>
+<script src="/javascripts/jquery-2.0.2.min.js"></script>
+<script src="/javascripts/bootstrap.bundle.min.js"></script>
+</html>

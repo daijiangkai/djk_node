@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=data.study.title%>-详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href='/images/05.ico'>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+        .content_p p{
+            line-height: 30px;
+        }
+        .text_k{
+            resize: none;
+            width: 80%;
+            height: 100px;
+            padding: 5px;
+        }
+        .submit{
+            width: 200px;
+            height: 30px;
+            background: #00d95a;
+            border: 2px solid #7abaff;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+        .comment_user_img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .count_p{
+            background: rgba(255,255,255,0.5);
+            border-radius: 10px;
+            position: relative;
+            margin-left: -10px;
+        }
+        .count_p::before{
+            position: absolute;
+            display: block;
+            content: "";
+            top: 10px;
+            left: -20px;
+            border-right:20px solid rgba(255,255,255,0.5);
+            border-left:0px solid transparent;
+            border-top:10px solid transparent;
+            border-bottom:10px solid transparent;
+
+        }
+        .count img{
+            display: inline-block;
+            max-width: 100%;
+            max-height: 300px;
+        }
+        .bg_hover>a:hover{
+            color: black;
+            background:rgba(46,195,249,0.5);
+        }
+        .hint_all{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            z-index: 99;
+        }
+        .hint{
+            width: 400px;
+            height: 200px;
+            border-radius: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: white;
+        }
+        .hint_p{
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 40px 0;
+        }
+        .hint_btn>li{
+             list-style-type: none;
+             float: left;
+             width: 50%;
+             text-align: center;
+             height: 40px;
+             border-radius: 20px;
+             background: #9effff;
+             line-height: 40px;
+            cursor:pointer;
+         }
+
+        .hint_btn>li>a{
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 24px;
+            color: rgb(128,128,128);
+        }
+        .hint_btn>li>a:hover{
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+<%- include('../nav/nav.html'); %>
+
+<div class="container">
+    <div class="row mt-5 d-flex justify-content-between">
+        <div class="col-lg-3  rounded bg_color xs_none">
+            <ul class="list-group bg_hover">
+                <li class="list-group-item bg_blue " >学习</li>
+                <%data.classify.forEach((classify)=>{%>
+                <a href="/from/two/<%=classify.class_id%>" class="text-decoration-none"> <li class="list-group-item bg_white"><%=classify.class_name%></li></a>
+                <%})%>
+            </ul>
+            <ul class="list-group mt-5 bg_hover sticky-top " style="z-index: 1">
+                <li class="list-group-item bg_blue " >访问量排序</li>
+
+                <%data.study_xu.forEach((study_x,key)=>{%>
+                <a href="/later/study/<%=study_x.id%>" class="text-decoration-none"><li class="list-group-item bg_white"><%=study_x.title%>【<%=study_x.view%>】</li></a>
+                <%})%>
+            </ul>
+        </div>
+        <div class="col-lg-9 pl-lg-5 mt-4 mt-md-0 count">
+            <p class="text_indent" style="font-size:2rem "><%=data.study.title%></p>
+            <p>作者：<%=data.author_name%></p>
+            <p id="content" class="content_p"></p>
+            <textarea id="contents" style="display: none"><%=data.study.content%></textarea>
+            <p class="text-right"><span class="font-weight-bold" >点赞数：</span><em id="em"><%=data.study.like_s%></em>,<span class="font-weight-bold" >阅读量：</span><%=data.study.view%></p>
+            <div style="height: 50px;line-height: 50px;">
+                点个赞呗：<img src="/images/dianzan.png" <%if(data.like){%>width="0px"<%}else{%>width="30px"<%}%>  style="cursor: pointer;" class="dianzan">
+                <img src="/images/dianzan_true.png"  <%if(data.like){%>width="30px"<%}else{%>width="0px"<%}%> style="cursor: pointer; transition: width 1s linear;" class="dianzan">
+            </div>
+            <p class="text-right"><span class="font-weight-bold" >创建时间：</span><%=data.study.establish_time%></p>
+            <div style="" class="text-center my-5">
+                <form action="/later/study/<%=data.study.id%>" method="post">
+                    <textarea placeholder="说说你的想法吧！！！" class="text_k" name="comment"></textarea>
+                    <input type="submit" value="发送" class="submit">
+                </form>
+            </div>
+            <%data.comment.forEach((comment)=>{%>
+            <div class="my-5 clearfix">
+                <div class="float-left" style="width:10%;">
+                    <div class="comment_user_img m-auto" style="background: url('/uploads/<%=comment.c_user_img%>') no-repeat 50% 50%/auto 50px;"></div>
+                    <p class="text-center" style="width:100%;overflow: hidden;"><%=comment.c_user_name%></p>
+                </div>
+                <div class="count_p float-right" style="width: 85%">
+                    <p style="text-indent: 2em; margin-top: 5px;"><%=comment.c_comment_count%></p>
+                    <p style="font-size: 0.5rem;color: #6A6A6A;text-align: right;"><%=comment.c_comment_time%></p>
+                </div>
+            </div>
+            <%})%>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+<div class="hint_all">
+<div class="hint">
+    <p class="hint_p">
+        请登录后再试试呗！！！
+    </p>
+   <ul class="clearfix hint_btn">
+       <li><a href="/later/login"> 好的</a></li>
+       <li class="close">容我想想</li>
+   </ul>
+</div>
+</div>
+</body>
+<script src="/javascripts/jquery-2.0.2.min.js"></script>
+<script src="/javascripts/bootstrap.bundle.min.js"></script>
+<script src="/javascripts/marked.min.js"></script>
+<script src="/javascripts/index.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var tag=false;
+        $(".close").click(function () {
+            $(".hint_all").css("display","none");
+        })
+        $(".dianzan").click(function () {
+        <%if(data.user){%>
+                $(".dianzan").css({
+                    display:"inline-block",
+                    width:"30px"
+                });
+                $(this).css("display","none");
+                tag=true;
+            <%}else{%>
+                $(".hint_all").css("display","block");
+            <%}%>
+
+        });
+
+            $(".dianzan").eq(0).click(function () {
+                if(tag) {
+                var like = parseInt($("#em").text());
+                like = like + 1;
+                $("#em").text(like);
+                $.ajax({ //一个Ajax过程
+                    type: "post", //以post方式与后台沟通
+                    url: "/later/like_s", //与此php页面沟通
+                    dataType: 'json',//从php返回的值以 JSON方式 解释
+                    data: {"dianzan": like, "study_id": "<%=data.study.id%>"}, //发给php的数据有两项，分别是上面传来的u和p
+                    success: function (json) {//如果调用php成功
+                        //alert(json.username+'\n'+json.password); //把php中的返回值（json.username）给 alert出来
+                        //alert("haha"); //把php中的返回值显示在预定义的result定位符位置
+                    }
+                });
+                    }
+            });
+            $(".dianzan").eq(1).click(function () {
+                if(tag) {
+                var like = parseInt($("#em").text());
+                like = like - 1;
+                $("#em").text(like);
+                $.ajax({ //一个Ajax过程
+                    type: "post", //以post方式与后台沟通
+                    url: "/later/like_j", //与此php页面沟通
+                    dataType: 'json',//从php返回的值以 JSON方式 解释
+                    data: {"dianzan": like, "study_id": "<%=data.study.id%>"}, //发给php的数据有两项，分别是上面传来的u和p
+                    success: function (json) {//如果调用php成功
+                        //alert(json.username+'\n'+json.password); //把php中的返回值（json.username）给 alert出来
+                        //alert("haha"); //把php中的返回值显示在预定义的result定位符位置
+                    }
+                });
+                    }
+            });
+
+        $("#content").html(
+            marked($("#contents").text(
+
+            ))
+        );
+
+    });
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>霹雳英雄人物</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href='/images/05.ico'>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<a href="#top" class="xs_none">
+    <div class="jump"><span></span></div></a>
+<form action="/from/sou1" method="get">
+    <div class="sou">
+        <input type="text" placeholder="Search..." name="keyword">
+        <button type="submit" class="search"></button>
+    </div>
+</form>
+<%- include('./nav/nav.html'); %>
+
+<div class="container my-5">
+    <%data.pili.forEach((pili)=>{%>
+    <div class="alert alert-success" role="alert">
+        <a href="/later/show/<%=pili.id%>" class="text-decoration-none text-reset">
+        <h4 class="alert-heading"><%=pili.name%></h4>
+        <p class="fs-1"><%=pili.jj%></p>
+        <hr>
+        <p class="mb-0 fs-1"><%=pili.poem%></p>
+        </a>
+    </div>
+    <%})%>
+</div>
+</body>
+<script src="/javascripts/jquery-2.0.2.min.js"></script>
+<script src="/javascripts/bootstrap.bundle.min.js"></script>
+
+<script src="/javascripts/index.js"></script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文章修改页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href='/images/05.ico'>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/editor.md/css/editormd.css">
+    <link rel="stylesheet" href="/stylesheets/swiper.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+
+</head>
+<body>
+<%- include('../nav/nav.html'); %>
+<div class="container mt-4">
+    <div class="col-12">
+        <div class="card p-4">
+            <h1 class="h3">添加文章页面</h1>
+            <form action="/later/store" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<%=data.study.id%>">
+                <div class="form-group">
+                    <label for="title">标题：</label>
+                    <input name="title" type="text" required class="form-control" id="title" placeholder="<请输入标题>" value="<%=data.study.title%>" >
+                </div>
+                <div class="form-group">
+                    <label for="category">所属分类:</label>
+                    <select name="category" class="form-control" id="category">
+                        <%data.classify.forEach(function(classify,key){%>
+                        <%if(key>=1){%>
+                        <option value="<%=classify.id%>" <%if(data.study.classify_id==classify.class_id){%>selected<%}%> > <%=classify.class_name%></option>
+                        <%}%>
+                        <%})%>
+                    </select>
+                </div>
+                <div class="form-group">'
+                    <img src="/uploads/<%=data.study.img%>">
+                    <label for="article_pic">缩略图:</label>
+                    <input name="pic" type="file" id="article_pic">
+                </div>
+                <div class="form-group" id="content">
+                    <label>文章内容</label>
+                    <textarea class="editormd-markdown-textarea" name="contentmarkdown"><%=data.study.content_text%></textarea>
+                    <!-- html textarea 需要开启配置项 saveHTMLToTextarea == true -->
+                    <textarea class="editormd-html-textarea" name="contenthtml"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="form-control btn btn-success">
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+</div>
+</body>
+</html>
+<script src="/javascripts/jquery-2.0.2.min.js"></script>
+<script src="/javascripts/bootstrap.bundle.min.js"></script>
+<script src="/editor.md/src/editormd.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var editor = editormd("content", {
+            width: "100%",
+            height: "600",
+            imageUpload  : true,
+            saveHTMLToTextarea   : true,
+            imageFormats  : ["jpg", "jpeg", "gif", "png", "bmp", "webp",'mp4'],
+            imageUploadURL : "/later/upload",
+            htmlDecode : true ,
+            htmlDecode : "style,script,iframe,sub,sup|on*",
+            path : "/editor.md/lib/"
+        });
+    });
+</script>

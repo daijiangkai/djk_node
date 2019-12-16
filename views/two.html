@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>前端学习</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href='/images/05.ico'>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+        @media (min-width: 960px) {
+            .xiu{
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .del{
+                border-radius: 4px;
+                right: 50px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        @media (max-width: 960px) {
+            .content_wen{
+                position: relative;
+            }
+            .xiu>a,.del>a{
+               font-size: 1.5rem;
+            }
+            .del{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+            .xiu{
+                position: absolute;
+                bottom: 0;
+                right: 80px;
+            }
+        }
+        .del_a:hover{
+            color: #FF0000;
+        }
+        /*.bg_hover>li:hover{*/
+        /*    background:rgba(251,133,119,0.5);*/
+        /*}*/
+
+        .bg_hover>li:hover a{
+            color: #9effff;
+        }
+        a:active{
+            color: #1DC116;
+        }
+        a{
+            color:rgb(51,51,51);
+        }
+        .title_class{
+            padding: 0 20px;
+            line-height: 40px;
+            font-size: 28px;
+            height: 40px;
+            background: rgba(0,0,0,0.1);
+            border-left: 3px solid rgba(46,125,161,1);
+            /*border-top-right-radius: 10px;*/
+        }
+        .content_wen{
+            background: rgba(255,255,255,0.6);
+            padding: 20px;
+            font-size: 22px;
+            /*border-bottom-right-radius: 10px;*/
+        }
+        .view_wen{
+                padding: 0 20px;
+        }
+        .count_all{
+            padding: 20px 0;
+            border-bottom: 1px dotted rgba(0,0,0,0.6);
+        }
+    </style>
+</head>
+<body>
+<a href="#top" class="xs_none">
+    <div class="jump"><span></span></div></a>
+<form action="/from/sou" method="get">
+    <div class="sou">
+        <input type="text" placeholder="Search..." name="keyword">
+        <button type="submit" class="search"></button>
+    </div>
+</form>
+<%- include('./nav/nav.html'); %>
+<div class="container">
+    <div class="row mt-5 d-flex justify-content-between">
+        <div class="col-lg-3  rounded bg_color">
+            <ul class="list-group bg_hover">
+                <li class="list-group-item bg_blue" >学习</li>
+
+                <%data.classify.forEach((classify,key)=>{%>
+                <%if(key==0){%>
+                <li class="list-group-item bg_white"><a href="/from/two/<%=classify.class_id%>" class="text-decoration-none"><%=classify.class_name%>【<%=data.study1.length%>】</a></li>
+                <%}else{%>
+                <%var a=0%>
+                <li class="list-group-item bg_white">
+                    <a href="/from/two/<%=classify.class_id%>" class="text-decoration-none"><%=classify.class_name%>
+                    【<%data.study1.forEach((study)=>{%>
+                        <%if(classify.class_id==study.classify_id){%>
+                        <%a++%>
+                        <%}%>
+                        <%})%>
+                        <%=a%>
+                        】
+                </a></li>
+                <%}%>
+                <%})%>
+            </ul>
+
+            <ul class="list-group mt-5 bg_hover sticky-top xs_none">
+                <li class="list-group-item bg_blue" >访问量排序</li>
+
+                <%data.study_xu.forEach((study_x,key)=>{%>
+                <li class="list-group-item bg_white"><a href="/later/study/<%=study_x.id%>" class="text-decoration-none"><%=study_x.title%>【<%=study_x.view%>】</a></li>
+                <%})%>
+            </ul>
+        </div>
+        <div class="col-lg-9 pl-lg-5 mt-4 mt-md-0">
+            <div class="w-100">
+                <p class="mk2_title">学习笔记</P>
+                <div class="w-100 mb-5">
+                    <%data.study.forEach((study)=>{%>
+                    <div class="count_all">
+                        <div class="w-100 title_class">
+                            <%=study.classify%>
+                        </div>
+                        <div class="content_wen position-relative pb-5">
+                            <a href="/later/study/<%=study.id%>" class="text-decoration-none"><%=study.title%></a>
+                            <%if(data.user){%>
+                            <p class="position-absolute xiu"><a href="/later/revamp/<%=study.id%>" class="text-decoration-none">修改</a></p>
+                            <p class="position-absolute del"><a href="/later/del/<%=study.id%>" class="text-decoration-none del_a">删除</a></p>
+                            <%}%>
+                        </div>
+                        <div class="view_wen">访问量：<%=study.view%>&nbsp;———— &nbsp; 创建时间：<%=study.establish_time%></div>
+                    </div>
+                    <%})%>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/javascripts/jquery-2.0.2.min.js"></script>
+<script src="/javascripts/bootstrap.bundle.min.js"></script>
+
+<script src="/javascripts/index.js"></script>
+<script>
+
+    $(".bg_hover>li:nth-child(n+2)").mousemove(function () {
+            $(this).css({
+                background:"rgba(46,195,249,0.5)"
+            })
+    let thi=this;
+        if($(this).mouseout()) {
+            setTimeout(function () {
+                $(thi).css({
+                    background: "rgba(255,255,255,0.5)"
+                })
+            }, 200)
+        }
+    });
+
+
+
+</script>
+</html>

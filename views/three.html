@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐共享</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href='/images/05.ico'>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<a href="#top" class="xs_none">
+    <div class="jump"><span></span></div></a>
+<form action="/from/sou2" method="get">
+    <div class="sou">
+        <input type="text" placeholder="Search..." name="keyword">
+        <button type="submit" class="search"></button>
+    </div>
+</form>
+<%- include('./nav/nav.html'); %>
+<div class="container mt-5">
+    <%data.music.forEach((music)=>{%>
+    <audio src="<%=music.path%>"></audio>
+    <div class="card mb-3 float-left" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="/uploads/a1.jpg" class="card-img mt-4" alt="...">
+            </div>
+            <div class="col-md-8 ">
+                <div class="card-body mt-2">
+                    <h5 class="card-title"><%=music.music_name%></h5>
+                    <p class="card-text">歌手：<%=music.author%></p>
+                    <p class="card-text"><small class="dian1 cuser"> &lt;&lt;&lt;点击试听&gt;&gt;&gt; </small></p>
+                    <p class="card-text"><small class="dian2 cuser"> &lt;&lt;&lt;暂停播放&gt;&gt;&gt; </small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%})%>
+</div>
+
+</div>
+</body>
+<script src="/javascripts/jquery-2.0.2.min.js"></script>
+<script src="/javascripts/bootstrap.bundle.min.js"></script>
+
+<script src="/javascripts/index.js"></script>
+<script>
+var dian=document.querySelectorAll(".dian1");
+var stop=document.querySelectorAll(".dian2");
+var audio=document.querySelectorAll("audio");
+for(let i=0;i<dian.length;i++){
+    dian[i].onclick=function () {
+        for (let a=0;a<audio.length;a++){
+            audio[a].pause();
+            audio[a].currentTime=0;
+            dian[a].style.color="#00B7FF";
+            stop[a].style.color="#d9d9d9";
+        }
+        audio[i].play();
+        dian[i].style.color="#d9d9d9";
+        stop[i].style.color="#00B7FF";
+    }
+}
+for(let i=0;i<stop.length;i++){
+    stop[i].onclick=function () {
+        audio[i].pause();
+        dian[i].style.color="#00B7FF";
+        stop[i].style.color="#d9d9d9";
+    }
+}
+
+</script>
+</html>

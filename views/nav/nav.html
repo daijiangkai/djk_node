@@ -1,0 +1,52 @@
+<img src="/images/page-bg.jpg" class="position-fixed w-100 h-100 bj_A" style="top: 0;left: 0;z-index: -1" >
+<img src="/images/s_bg.png" class="position-fixed w-100 bj_b" style="top: -100px;left: 0;z-index: -1;" >
+<div class="container A_top align-items-end justify-content-end pb-4 user">
+    <%if(data.user){%>
+   <a href="/later/headpicture"><div  class="head_img mr-3" style="background: url('/uploads/<%=data.user.head_img%>') no-repeat 50% 50%/auto 100px;"></div></a>
+
+    <div class="text-white mr-3 user_name" style="font-family: '华文新魏';font-size: 36px;"><a href="/users/info"><%=data.user.name%></a></div>
+    <%}%>
+</div>
+<nav class="nav2">
+
+    <div class="menu-btn">
+        <div class="line line--1"></div>
+        <div class="line line--2"></div>
+        <div class="line line--3"></div>
+    </div>
+
+    <div class="nav-links">
+        <%if(!data.user){%>
+        <a href="/later/login" class="link">登陆</a>
+        <a href="/later/registor"  class="link">注册</a>
+        <%}else{%>
+        <a href="/later/headpicture" class="link"><div  class="mr-3" style="width: 100px;height:100px;border-radius:50%;background: url('/uploads/<%=data.user.head_img%>') no-repeat 50% 50%/auto 100px;"></div></a>
+        <a href="/from/add"  class="link">写入</a>
+        <a href="/users/logout" class="link">退出登陆</a>
+        <%}%>
+        <a href="/" class="link">首页</a>
+        <a href="/from/one" class="link">英雄人物</a>
+        <a href="/from/two/0" class="link">学习页面</a>
+        <a href="/from/three" class="link">音乐共享</a>
+    </div>
+</nav>
+<nav class="nav1 container">
+
+    <a href="/">首页</a>
+    <a href="/from/one">英雄人物</a>
+    <a href="/from/two/0">学习页面</a>
+    <a href="/from/three">音乐共享</a>
+    <div id="indicator"></div>
+
+    <div class="denl">
+        <%if(!data.user){%>
+        <a href="/later/login">登陆</a>
+        <a href="/later/registor">注册</a>
+        <%}else{%>
+
+
+        <a href="/from/add">写入</a>
+        <a href="/users/logout">退出登陆</a>
+        <%}%>
+    </div>
+</nav>

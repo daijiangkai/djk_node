@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=data.text.name%>-详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href='/images/05.ico'>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<%- include('../nav/nav.html'); %>
+
+<div class="container">
+    <div class="row mt-5 d-flex justify-content-between">
+        <div class="col-lg-3  rounded bg_color">
+            <img src="<%=data.text.img%>" class="w-100">
+        </div>
+        <div class="col-lg-9 pl-lg-5 mt-4 mt-md-0">
+            <%if(data.text.jj){%>
+            <%data.text.jj.forEach((jj,key)=>{%>
+            <p class="text_indent"><%=jj%></p>
+            <%})%>
+            <%}%>
+            <%if(data.text.poem){%>
+            <%data.text.poem.forEach((poem,key)=>{%>
+            <p><span class="font-weight-bold text_indent" >诗号<%if(data.text.poem.length>1){%><%=key+1%><%}%>：</span><%=poem%></p>
+            <%})%>
+            <%}%>
+            <p class="text-right"><span class="font-weight-bold text_indent" >阅读量：</span><%=data.text.view%></p>
+        </div>
+    </div>
+
+</div>
+</body>
+<script src="/javascripts/jquery-2.0.2.min.js"></script>
+<script src="/javascripts/bootstrap.bundle.min.js"></script>
+
+
+<script src="/javascripts/index.js"></script>
+
+</html>

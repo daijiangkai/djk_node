@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href='/images/05.ico'>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+
+
+        input[name=userpwd]+p{
+            color:red;
+        }
+        .text{
+            width: 200px;
+            height: 40px;
+            border-radius:20px;
+            border-color: #00c4ff;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .submit{
+            width: 100px;
+            height: 30px;
+            border-radius: 15px;
+            background: #00c4ff;
+        }
+    .from{
+        width: 300px;
+
+    }
+.go{
+   font-size: 1rem;
+}
+
+    </style>
+</head>
+<body>
+<img src="/images/zcbg.jpg" class="position-fixed w-100 h-100" style="z-index: -1">
+
+<div class="pt-5">
+
+<form action="/later/registor" method="post" class="from m-auto text-right">
+    用户名: <input required type="text" name="username" class="text mt-1 ml-4"><br>
+    密码： <input required type="password" name="userpwd" class="text mt-1 ml-4">
+    <%if(data.error){%>
+    <p><%=data.error.message%></p>
+    <%}%>
+    <br>
+    确认密码： <input required type="password" name="reuserpwd" class="text mt-1"> <br>
+    密保邮箱： <input required type="email" name="email"  class="text mt-1"> <br>
+    <div class="d-flex justify-content-center">
+    <a href="/later/login" class="go m-0"><input type="button" class="mt-2 submit go" value="登陆"></a>
+    <input type="submit" value="注册" class="mt-2 submit ml-3 go">
+    </div>
+</form>
+</div>
+</body>
+<script src="/javascripts/jquery-2.0.2.min.js"></script>
+<script src="/javascripts/bootstrap.bundle.min.js"></script>
+</html>
