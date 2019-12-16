@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="68deaaec-be00-418d-831d-1fac2de34b07" name="Default Changelist" comment="第二次提交" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\djk\Desktop\blog_demo_1\.idea" />
+        <option value="C:\Users\djk\Desktop\djk_node\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1UbUFVlc9UHBmn4kOneSB6O5DJl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\djk\Desktop\blog_demo_1\public\javascripts" />
+      <recent name="C:\Users\djk\Desktop\blog_demo_1\public\uploads" />
+      <recent name="C:\Users\djk\Desktop\blog_demo_1\views" />
+      <recent name="C:\Users\djk\Desktop\blog_demo_1\public\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\djk\Desktop\blog_demo_1\public\stylesheets" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="68deaaec-be00-418d-831d-1fac2de34b07" name="Default Changelist" comment="第二次提交" />
+      <created>1575624684638</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575624684638</updated>
+      <workItem from="1575624685841" duration="47481000" />
+      <workItem from="1575780557056" duration="23094000" />
+      <workItem from="1575852914148" duration="31240000" />
+      <workItem from="1575938870322" duration="31521000" />
+      <workItem from="1576025105512" duration="32854000" />
+      <workItem from="1576111452295" duration="35001000" />
+      <workItem from="1576198151348" duration="33465000" />
+      <workItem from="1576300343051" duration="23133000" />
+      <workItem from="1576413285124" duration="1467000" />
+      <workItem from="1576457536008" duration="1255000" />
+      <workItem from="1576462016612" duration="119000" />
+      <workItem from="1576462635075" duration="67000" />
+      <workItem from="1576462922844" duration="59000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第一次提交" />
+    <MESSAGE value="第二次提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="第二次提交" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575705939216">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1575705939216" />
+    <state x="336" y="6" width="1034" height="812" key="CommitChangelistDialog2" timestamp="1576462585749">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="336" y="6" width="1034" height="812" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1576462585749" />
+    <state x="548" y="153" key="FileChooserDialogImpl" timestamp="1576462700495">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="548" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1576462700495" />
+    <state width="1024" height="220" key="GridCell.Tab.0.bottom" timestamp="1576393247605">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="220" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1576393247605" />
+    <state width="1024" height="220" key="GridCell.Tab.0.center" timestamp="1576393247604">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="220" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1576393247604" />
+    <state width="1024" height="220" key="GridCell.Tab.0.left" timestamp="1576393247603">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="220" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1576393247603" />
+    <state width="1024" height="220" key="GridCell.Tab.0.right" timestamp="1576393247604">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="220" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1576393247604" />
+    <state x="485" y="52" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1576300566400">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="485" y="52" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1576300566400" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1576199338661">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1576199338661" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1576409259676">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1576409259676" />
+  </component>
+</project>
